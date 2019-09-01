@@ -13,7 +13,7 @@ public class SampleTPS : MonoBehaviour {
     [Range(1,360)]
     public float camRotateSpeed;
 
-    [Header("Насройки гравитации")]
+    [Header("Настройки гравитации")]
     [Range(0,100)]
     public float grav;
     [Range(0,100)]
@@ -55,7 +55,8 @@ public class SampleTPS : MonoBehaviour {
     private void CamRotate()
     {
         float mx;
-        mx = Input.GetAxis("Mouse X"); //отслеживание ввода с клавиатуры Mouse X (заранее заготовленная настройка ввода, возвращающая положительные значения, если мышь
+        mx = Input.GetAxis("Mouse X"); //отслеживание ввода: Mouse X (мышь, горизонталь) 
+                                                  //(заранее заготовленная настройка ввода, возвращающая положительные значения, если мышь
         cameraHandler.position = transform.position;                                    //движется вправо, отрицательные, если влево, иначе 0
 
         if(mx != 0)
@@ -68,7 +69,8 @@ public class SampleTPS : MonoBehaviour {
     {
         float h, v;
 
-        h = Input.GetAxis("Horizontal"); //можно посмотреть, поменять и создать новые Input в редакторе. Для этого используйте Edit/ProjectSettings/Input
+        h = Input.GetAxis("Horizontal"); //можно посмотреть, поменять и создать новые Input в редакторе. Для этого используйте
+                                            //Edit /ProjectSettings/Input
         v = Input.GetAxis("Vertical");      //там будут уже имеющиеся Axis. Посмотрите кнопки для Vertical и Horizontal
 
         Vector3 camForward = cam.forward;
@@ -94,10 +96,10 @@ public class SampleTPS : MonoBehaviour {
         dir = new Vector3(dir.x * speed * Time.deltaTime, yAxis * Time.deltaTime, dir.z * speed * Time.deltaTime);
 
         if (dir != Vector3.zero)
-        {                                       //движение с помощью CharacterControler отличается от редактирования позиции тем, что учитываются ступеньки и уклоны
+        {                                       //движение с помощью CharacterControler отличается от редактирования позиции тем, что
+                                                //учитываются ступеньки и уклоны
             characterController.Move(dir); 
         }
-
     }
 
     private void InstanceObject()
@@ -108,8 +110,9 @@ public class SampleTPS : MonoBehaviour {
         {
             if(currentObject == null)
             {
-                currentObject = Instantiate(instanceObject, transform.position + Vector3.up * 1.5f, Quaternion.identity); //Instanstiate - создание нового объекта из префаба instanceObject
-            }                           //в точке transform.position + Vector3.up * 1.5f и с вращением Quaternion.identity
+                currentObject = Instantiate(instanceObject, transform.position + Vector3.up * 1.5f, Quaternion.identity);
+                                        //Instanstiate - создание нового объекта из префаба instanceObject
+            }                      //в точке transform.position + Vector3.up * 1.5f и с вращением Quaternion.identity (identity - стандартное)
             float h, v;
             h = Input.GetAxis("Horizontal");
             v = Input.GetAxis("Vertical");
@@ -144,7 +147,7 @@ public class SampleTPS : MonoBehaviour {
 
     private void LogMessage()
     {
-        Debug.Log("Поставили морковку"); //вывод сообщения в консол
+        Debug.Log("Поставили морковку"); //вывод сообщения в консоль
     }
     private void LogError()
     {

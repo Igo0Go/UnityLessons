@@ -70,6 +70,7 @@ public class Homework2_IgoGo : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         MoveType = IgoGo_Move;
+
         if (move)
         {
             moveAction();

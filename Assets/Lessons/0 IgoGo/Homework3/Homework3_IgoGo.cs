@@ -27,8 +27,8 @@ public class Homework3_IgoGo : MonoBehaviour {
     private CharacterController characterController;
     private Vector3 dir;
     private float yAxis;
-    private float currentYAxisAngel;
-    private float currentXAxisAngel;
+    private float currentYAxisAngle;
+    private float currentXAxisAngle;
 
     private bool withObject;
     private int spawnNumber;
@@ -37,8 +37,8 @@ public class Homework3_IgoGo : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Cursor.lockState = CursorLockMode.Locked;
-        currentYAxisAngel = transform.eulerAngles.y;
-        currentXAxisAngel = transform.eulerAngles.x;
+        currentYAxisAngle = transform.eulerAngles.y;
+        currentXAxisAngle = transform.eulerAngles.x;
         characterController = GetComponent<CharacterController>();
 	}
 	
@@ -94,10 +94,10 @@ public class Homework3_IgoGo : MonoBehaviour {
 
         if(mx!=0 || my != 0)
         {
-            currentYAxisAngel += mx * camRotateSpeed * Time.deltaTime;
-            currentXAxisAngel -= my * camRotateSpeed * Time.deltaTime;
-            currentXAxisAngel = Mathf.Clamp(currentXAxisAngel, minYAngel, maxYAngel);
-            transform.rotation = Quaternion.Euler(currentXAxisAngel, currentYAxisAngel, 0);
+            currentYAxisAngle += mx * camRotateSpeed * Time.deltaTime;
+            currentXAxisAngle -= my * camRotateSpeed * Time.deltaTime;
+            currentXAxisAngle = Mathf.Clamp(currentXAxisAngle, minYAngel, maxYAngel);
+            transform.rotation = Quaternion.Euler(currentXAxisAngle, currentYAxisAngle, 0);
         }
     }
 
